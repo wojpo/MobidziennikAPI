@@ -1,5 +1,5 @@
 import requests
-from data import (loginUrl, messagesUrl,lastMessageUrl, payload)
+from data import (loginUrl, messagesUrl, lastMessageUrl, payload)
 from bs4 import BeautifulSoup
 
 
@@ -13,23 +13,19 @@ async def last_message():
         sender = lastMessage[3]
         idd = lastMessage[6]
         idd = str(idd)
-        idd = idd.replace('<td style="text-align:center;"><input name="skasuj_odebrane[]" rel="','')
+        idd = idd.replace('<td style="text-align:center;"><input name="skasuj_odebrane[]" rel="', '')
         idd = idd[:6]
         lastMessageUrlSite = lastMessageUrl
         lastMessageUrlSite += idd
         LastMessageSite = uwu.get(lastMessageUrlSite)
-        soup2 = BeautifulSoup(LastMessageSite.content,'html.parser')
+        soup2 = BeautifulSoup(LastMessageSite.content, 'html.parser')
         messageContent = soup2.find_all('p')
-        print(messageContent)
+        content = ''
         for messageContentUwU in messageContent:
-            print(messageContentUwU.text)
+            content +=messageContentUwU.text
 
-
-    print(title.text)
-    print(sender.text)
-    print(idd)
     return {
         'title': f'{title.text}',
         'sender': f'{sender.text}',
-        'content': f'{messageContentUwU.text}'
+        'content': f'{content}'
     }
