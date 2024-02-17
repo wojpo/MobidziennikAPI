@@ -1,5 +1,5 @@
 import requests
-from data import (loginUrl, messagesUrl, lastMessageUrl, payload)
+from utils.data import (loginUrl, messagesUrl, lastMessageUrl, payload)
 from bs4 import BeautifulSoup
 
 
