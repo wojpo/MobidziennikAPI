@@ -1,5 +1,5 @@
 import requests
-from data import (loginUrl, planLekcjiUrl, payload)
+from utils.data import (loginUrl, planLekcjiUrl, payload)
 from bs4 import BeautifulSoup
 
 
